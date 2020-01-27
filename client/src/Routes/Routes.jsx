@@ -10,13 +10,13 @@ import Edit from "../Layout/Edit/Edit";
 const Routes = () => {
   return (
     <Fragment>
-        <NavBar />
-        <Switch>
-          <Route path="/" component={ Home } exact />
-          <Route path="/add" component={ Add } exact />
-          <Route path="/edit" component={ Edit } exact />
-        </Switch>
-      </Fragment>
+      <NavBar />
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/add" component={Add} exact />
+        <Route path="/edit" component={Edit} exact />
+      </Switch>
+    </Fragment>
   );
 };
 

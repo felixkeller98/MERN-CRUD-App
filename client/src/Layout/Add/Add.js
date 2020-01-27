@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import AddStudent from '../../components/AddStudent/AddStudent';
+import React, { Fragment } from "react";
+import AddStudent from "../../components/AddStudent/AddStudent";
 
 const Add = () => {
   return (

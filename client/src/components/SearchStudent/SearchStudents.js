@@ -8,7 +8,7 @@ class SearchStudents extends Component {
     this.setState({ value: e.target.value }, () => {
       this.props.searchStudents(this.state.value);
     });
-  }
+  };
 
   render() {
     return (
@@ -16,7 +16,7 @@ class SearchStudents extends Component {
         type="text"
         placeholder="Filter by name..."
         name="name"
-        onChange={ this.onChangeHandler }
+        onChange={this.onChangeHandler}
         className="Search-Student-Input"
       />
     );

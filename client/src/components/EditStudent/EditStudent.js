@@ -18,7 +18,6 @@ class EditStudent extends Component {
   async componentDidMount() {
     try {
       let search = this.props.location.search;
-      console.log("sear", search);
       let id = search.substring(1, search.length);
       const updateStudent = await axios(`/api/students/${id}`);
       const { name, email, enrollnumber } = updateStudent.data.student;
@@ -37,6 +36,7 @@ class EditStudent extends Component {
         enrollnumber: this.refs.enrollnumber.value
       });
       toast(student.data.message, { type: toast.TYPE.INFO, autoClose: 3000 });
+      this.props.rerenderParentCallback();
     } catch (err) {
       toast(err.message, { type: toast.TYPE.ERROR, autoClose: 3000 });
     }

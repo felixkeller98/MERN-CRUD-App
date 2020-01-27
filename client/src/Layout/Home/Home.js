@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 import axios from "axios";
-import { PropagateLoader } from 'react-spinners';
+import { PropagateLoader } from "react-spinners";
 // Components
 import Student from "../../components/Student/Student";
 import SearchStudents from "../../components/SearchStudent/SearchStudents";
@@ -24,6 +24,7 @@ class Home extends Component {
 
   removeStudent = async id => {
     try {
+      /*eslint no-unused-vars: 0 */
       const studentRemoved = await axios.delete(`/api/students/${id}`);
       const students = await axios("/api/students/");
       this.setState({ data: students.data });
@@ -52,9 +53,19 @@ class Home extends Component {
       students =
         this.state.data.students &&
         this.state.data.students.map(student => (
-          <Student key={student._id} {...student} removeStudent={this.removeStudent} />
+          <Student
+            key={student._id}
+            {...student}
+            removeStudent={this.removeStudent}
+          />
         ));
-    else return <div className="Spinner-Wrapper"> <PropagateLoader color={'#333'} /> </div>;
+    else
+      return (
+        <div className="Spinner-Wrapper">
+          {" "}
+          <PropagateLoader color={"#333"} />{" "}
+        </div>
+      );
 
     if (this.state.error) return <h1>{this.state.error}</h1>;
     if (this.state.data !== null)

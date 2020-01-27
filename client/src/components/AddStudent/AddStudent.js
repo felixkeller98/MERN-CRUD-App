@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import './AddStudent.css';
+import "./AddStudent.css";
 import axios from "axios";
-import {toast, ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class AddStudent extends Component {
   state = {
@@ -18,15 +18,18 @@ class AddStudent extends Component {
     e.preventDefault();
     try {
       const newStudent = await axios.post("/api/students/", {
-          name: this.refs.name.value,
-          email: this.refs.email.value,
-          enrollnumber: this.refs.enrollnumber.value
-        }
-      );
+        name: this.refs.name.value,
+        email: this.refs.email.value,
+        enrollnumber: this.refs.enrollnumber.value
+      });
 
-      toast("Student " + newStudent.data.newStudent.name + " created successfully" ,{ type: toast.TYPE.SUCCESS, autoClose: 3000 });
+      toast(
+        "Student " + newStudent.data.newStudent.name + " created successfully",
+        { type: toast.TYPE.SUCCESS, autoClose: 3000 }
+      );
+      this.setState(this.state);
     } catch (err) {
-      toast(err.message ,{ type: toast.TYPE.ERROR, autoClose: 3000 });
+      toast(err.message, { type: toast.TYPE.ERROR, autoClose: 3000 });
     }
   };
 
@@ -48,7 +51,9 @@ class AddStudent extends Component {
             maxLength="33"
             id="name"
           />
-          <label htmlFor="email">email: <b>(must be a valid email)</b></label>
+          <label htmlFor="email">
+            email: <b>(must be a valid email)</b>
+          </label>
           <input
             type="text"
             placeholder="enter your email here"
@@ -73,8 +78,14 @@ class AddStudent extends Component {
             required
             id="enrollnumber"
           />
-          <button type="submit" className="Add-Student-Submit fa fa-plus"></button>
-          <button type="reset" className="Add-Student-Reset fa fa-refresh"></button>
+          <button
+            type="submit"
+            className="Add-Student-Submit fa fa-plus"
+          ></button>
+          <button
+            type="reset"
+            className="Add-Student-Reset fa fa-refresh"
+          ></button>
         </form>
         <ToastContainer />
       </div>
