@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AddStudent.css";
 import axios from "axios";
+// https://fkhadra.github.io/react-toastify/
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -8,7 +9,7 @@ class AddStudent extends Component {
   state = {
     name: "",
     email: "",
-    enrollnumber: "",
+    age: "",
     response: ""
   };
 
@@ -20,7 +21,7 @@ class AddStudent extends Component {
       const newStudent = await axios.post("/api/students/", {
         name: this.refs.name.value,
         email: this.refs.email.value,
-        enrollnumber: this.refs.enrollnumber.value
+        age: this.refs.age.value
       });
 
       toast(
@@ -65,18 +66,18 @@ class AddStudent extends Component {
             required
             id="email"
           />
-          <label htmlFor="enrollnumber">Enrollment Number: </label>
+          <label htmlFor="age">Age: </label>
           <input
             type="number"
-            placeholder="0 to 120"
-            name="enrollnumber"
+            placeholder="Enter the student's age"
+            name="age"
             min="1"
             max="120"
             onChange={this.onChangeHandler}
-            ref="enrollnumber"
+            ref="age"
             className="Add-Student-Input"
             required
-            id="enrollnumber"
+            id="age"
           />
           <button
             type="submit"

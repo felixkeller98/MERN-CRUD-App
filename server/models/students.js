@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const studentSchema = new mongoose.Schema({
   name: {
@@ -13,14 +13,10 @@ const studentSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  enrollnumber: {
+  age: {
     type: Number,
-    min: 1,
-    max: 120
+    min: 1
   }
 });
 
-module.exports = mongoose.model('students', studentSchema);
-
-
-
+module.exports = mongoose.model("students", studentSchema);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 import axios from "axios";
+// https://www.davidhu.io/react-spinners/
 import { PropagateLoader } from "react-spinners";
 // Components
 import Student from "../../components/Student/Student";
@@ -81,7 +82,7 @@ class Home extends Component {
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>Enrollment Number</th>
+              <th>Age</th>
               <th>Actions</th>
             </tr>
           </thead>

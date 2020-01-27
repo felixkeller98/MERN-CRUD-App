@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
     const newStudent = await Students.create({
       name: req.body.name,
       email: req.body.email,
-      enrollnumber: req.body.enrollnumber
+      age: req.body.age
     });
     res.send({ newStudent });
   } catch (err) {

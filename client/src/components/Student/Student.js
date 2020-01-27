@@ -2,12 +2,12 @@ import React from "react";
 import "./Student.css";
 import { Link } from "react-router-dom";
 
-const Student = ({ _id, name, email, enrollnumber, removeStudent }) => {
+const Student = ({ _id, name, email, age, removeStudent }) => {
   return (
     <tr>
       <td>{name}</td>
       <td>{email}</td>
-      <td>{enrollnumber}</td>
+      <td>{age}</td>
       <td>
         <button
           onClick={() => removeStudent(_id)}

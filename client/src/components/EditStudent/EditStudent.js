@@ -9,7 +9,7 @@ class EditStudent extends Component {
     id: "",
     name: "",
     email: "",
-    enrollnumber: "",
+    age: "",
     response: ""
   };
 
@@ -20,8 +20,8 @@ class EditStudent extends Component {
       let search = this.props.location.search;
       let id = search.substring(1, search.length);
       const updateStudent = await axios(`/api/students/${id}`);
-      const { name, email, enrollnumber } = updateStudent.data.student;
-      this.setState({ id, name, email, enrollnumber });
+      const { name, email, age } = updateStudent.data.student;
+      this.setState({ id, name, email, age });
     } catch (err) {
       this.setState({ response: "Student not found!" });
     }
@@ -33,7 +33,7 @@ class EditStudent extends Component {
       const student = await axios.put(`/api/students/${this.state.id}`, {
         name: this.refs.name.value,
         email: this.refs.email.value,
-        enrollnumber: this.refs.enrollnumber.value
+        age: this.refs.age.value
       });
       toast(student.data.message, { type: toast.TYPE.INFO, autoClose: 3000 });
       this.props.rerenderParentCallback();
@@ -75,19 +75,19 @@ class EditStudent extends Component {
             className="Edit-Student-Input"
             id="email"
           />
-          <label htmlFor="enrollnumber">Enrollement Number: </label>
+          <label htmlFor="age">Age: </label>
           <input
             type="number"
-            placeholder="Enter the student's enrollment number"
-            value={this.state.enrollnumber}
-            name="enrollnumber"
+            placeholder="Enter the student's age"
+            value={this.state.age}
+            name="age"
             min="1"
             max="120"
             required
             onChange={this.onChangeHandler}
-            ref="enrollnumber"
+            ref="age"
             className="Edit-Student-Input"
-            id="enrollnumber"
+            id="age"
           />
           <button
             type="submit"
